@@ -33,27 +33,18 @@ const ChatPage = async ({ params: { chatId } }: Props) => {
   const currentChat = _chats.find((chat) => chat.id === parseInt(chatId));
   const isPro = await checkSubscription()
 
-
   return (
-    <div className="flex h-screen  ">
+    <div className="flex h-screen overflow-hidden  ">
       {/* chat sidebar */}
-      <div className="">
+      <div className="px-1">
         <ChatSideBar isPro={isPro} chats={_chats} chatId={parseInt(chatId)} />
       </div>
       {/* pdf viewer */}
-      <div className=" px-4 flex-[5]">
-        <div className="flex gap-4 my-2">
-          <a href="/" >
-            <div className=" text-gray-600 p-2 border w-fit rounded-xl border-gray-200 mx-2 my-2 bg-white hover:border-gray-600 hover:text-gray-900" >
-              <SquarePenIcon />
-            </div>
-          </a>
-          {/* <Image width={500} height={500} src="/logo.svg" alt="logo" className="h-16 ml-4 w-24" /> */}
-        </div>
+      <div className=" pr-2 md:flex hidden pt-20 flex-[4]">
         <PDFViewer pdf_url={currentChat?.pdfUrl || ""} />
       </div>
       {/* chat component */}
-      <div className="flex-[3] border-l-4 py-4 border-l-slate-200">
+      <div className="flex-[4] border-l-4 pt-20  border-l-slate-200">
         <ChatComponent chatId={parseInt(chatId)} />
       </div>
     </div>

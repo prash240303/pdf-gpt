@@ -1,7 +1,7 @@
 "use client";
 import { DrizzleChat } from "@/lib/db/schema";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "./ui/button";
 import { ChevronRight, MessageCircle, SquarePenIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -28,6 +28,9 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 import Image from "next/image";
+import { checkSubscription } from "@/lib/subscription";
+import DashboardHeader from "./header";
+import DashboardSidebar from "./sidebar";
 
 
 const components: { title: string; href: string; description: string }[] = [
@@ -68,13 +71,14 @@ const components: { title: string; href: string; description: string }[] = [
   },
 ]
 
-type Props = {
+type ChatSideBarProps = {
   chats: DrizzleChat[];
   chatId: number;
   isPro: boolean;
+  // children: React.ReactNode;
 };
 
-const ChatSideBar = ({ chats, chatId, isPro }: Props) => {
+const ChatSideBar = ({ isPro, chats, chatId }: ChatSideBarProps) => {
   const [loading, setLoading] = React.useState(false);
 
   const handleSubscription = async () => {
@@ -89,11 +93,46 @@ const ChatSideBar = ({ chats, chatId, isPro }: Props) => {
       setLoading(false)
     }
   }
+  {/* sidebar and header */ }
 
+  {/* layoiyut
+    <sidebar
+    header 
+    pdfveier*/}
+  const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
+  const [desktopSidebarOpen, setDesktopSidebarOpen] = useState(true);
   return (
     <>
-      
-      <div className="h-screen">
+      <div
+        // id="page-container"
+        // className={`mx-auto flex min-h-screen w-full min-w-[320px] flex-col bg-gray-100 dark:bg-gray-900 dark:text-gray-100 ${desktopSidebarOpen ? "lg:pl-64" : ""
+        //   }`}
+      >
+        <DashboardSidebar
+          chats={chats}
+          chatId={chatId}
+          isPro={isPro}
+          mobileSidebarOpen={mobileSidebarOpen}
+          setMobileSidebarOpen={setMobileSidebarOpen}
+          desktopSidebarOpen={desktopSidebarOpen}
+        />
+
+        <DashboardHeader
+          mobileSidebarOpen={mobileSidebarOpen}
+          setMobileSidebarOpen={setMobileSidebarOpen}
+          desktopSidebarOpen={desktopSidebarOpen}
+          setDesktopSidebarOpen={setDesktopSidebarOpen}
+        />
+      </div>
+
+      {/* <main
+        
+      >
+        {children}
+      </main> */}
+
+      {/* or use recoil */}
+      {/* <div className="h-screen">
         <Sheet>
           <SheetTrigger className="border absolute left-6 top-1/2 -translate-y-1/2 border-gray-300 bg-white rounded-xl p-1">
             <ChevronRight />
@@ -122,7 +161,6 @@ const ChatSideBar = ({ chats, chatId, isPro }: Props) => {
                       "hover:text-black hover:bg-primary-300 hover:bg-opacity-30 w-full  text-gray-600": chat.id !== chatId,
                     })}
                   >
-                    {/* <MessageCircle className="mr-2" /> */}
                     <p className="w-full overflow-hidden text-sm  truncate normal-case whitespace-nowrap text-ellipsis">
                       {chat.pdfName}
                     </p>
@@ -136,49 +174,53 @@ const ChatSideBar = ({ chats, chatId, isPro }: Props) => {
                 <Link href="/">Home</Link>
                 <Link href="/">Source</Link>
               </div>
-              {/* <SubscriptionButton isPro={isPro} /> */}
+               <SubscriptionButton isPro={isPro} /> 
 
-              <NavigationMenu>
-                <NavigationMenuList>
-                  <NavigationMenuItem>
-                    <NavigationMenuTrigger ><SubscriptionButton isPro={isPro} /></NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                        <li className="row-span-3">
-                          <NavigationMenuLink asChild>
-                            <a
-                              className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                              href="/"
-                            >
-                              <Image src="/next.svg" height={40} width={50} alt="hello" className="h-6 w-6" />
-                              <div className="mb-2 mt-4 text-lg font-medium">
-                                shadcn/ui
-                              </div>
-                              <p className="text-sm leading-tight text-muted-foreground">
-                                Beautifully designed components built with Radix UI and
-                                Tailwind CSS.
-                              </p>
-                            </a>
-                          </NavigationMenuLink>
-                        </li>
-                        <ListItem href="/docs" title="Introduction">
-                          Re-usable components built using Radix UI and Tailwind CSS.
-                        </ListItem>
-                        <ListItem href="/docs/installation" title="Installation">
-                          How to install dependencies and structure your app.
-                        </ListItem>
-                        <ListItem href="/docs/primitives/typography" title="Typography">
-                          Styles for headings, paragraphs, lists...etc
-                        </ListItem>
-                      </ul>
-                    </NavigationMenuContent>
-                  </NavigationMenuItem>
-                </NavigationMenuList>
-              </NavigationMenu>
-            </div>
-          </SheetContent>
-        </Sheet>
-      </div>
+      <NavigationMenu>
+        <NavigationMenuList>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger ><SubscriptionButton isPro={isPro} /></NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                <li className="row-span-3">
+                  <NavigationMenuLink asChild>
+                    <a
+                      className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                      href="/"
+                    >
+                      <Image src="/next.svg" height={40} width={50} alt="hello" className="h-6 w-6" />
+                      <div className="mb-2 mt-4 text-lg font-medium">
+                        shadcn/ui
+                      </div>
+                      <p className="text-sm leading-tight text-muted-foreground">
+                        Beautifully designed components built with Radix UI and
+                        Tailwind CSS.
+                      </p>
+                    </a>
+                  </NavigationMenuLink>
+                </li>
+                <ListItem href="/docs" title="Introduction">
+                  Re-usable components built using Radix UI and Tailwind CSS.
+                </ListItem>
+                <ListItem href="/docs/installation" title="Installation">
+                  How to install dependencies and structure your app.
+                </ListItem>
+                <ListItem href="/docs/primitives/typography" title="Typography">
+                  Styles for headings, paragraphs, lists...etc
+                </ListItem>
+              </ul>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+        </NavigationMenuList>
+      </NavigationMenu>
+    </div >
+          </SheetContent >
+        </Sheet >
+      </div >
+
+
+    */}
+
     </>
 
   )

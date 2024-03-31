@@ -1,7 +1,8 @@
 import { cn } from "@/lib/utils";
 import { Message } from "ai/react";
-import { Loader2 } from "lucide-react";
+import { Loader2, MessageCircleIcon } from "lucide-react";
 import React from "react";
+import { IconOpenAI, IconUser } from "./ui/icons";
 
 type Props = {
   isLoading: boolean;
@@ -18,30 +19,31 @@ const MessageList = ({ messages, isLoading }: Props) => {
   }
   if (!messages) return <></>;
   return (
-    <div className="flex flex-col gap-2 px-4">
+    <div className="flex flex-col my-4">
       {messages.map((message) => {
         return (
           <div
             key={message.id}
             className={cn("flex", {
-              "justify-end pl-10": message.role === "user",
-              "justify-start pr-10": message.role === "assistant",
+              
             })}
           >
             <div
               className={cn(
-                "rounded-lg px-3 text-sm py-1 shadow-md ring-1 ring-gray-900/10",
+                " px-3 text-sm w-full h-full py-3 flex gap-2 items-center justify-start",
                 {
                   "bg-blue-600 text-white": message.role === "user",
                 }
               )}
             >
+              {message.role === "user" ? (<IconOpenAI className="w-6 h-6" />) : <IconUser/>}
               <p>{message.content}</p>
             </div>
           </div>
         );
       })}
     </div>
+
   );
 };
 
