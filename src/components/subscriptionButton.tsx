@@ -23,7 +23,7 @@ export const SubscriptionButton = (props: Props) => {
     }
   }
   return (
-    <Button disabled={loading} className=' border-2 text-primary-300 bg-transparent font-semibold hover:bg-primary-300 hover:text-white border-primary-300 ' onClick={handleSubscription}>
+    <Button disabled={loading} className=' border-2 text-primary-200 bg-transparent font-semibold hover:bg-primary-200 hover:text-white border-primary-200 ' onClick={handleSubscription}>
       {props.isPro ? "Manage Subscription" : "Get Pro"}
     </Button>
   )
