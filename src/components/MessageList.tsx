@@ -25,7 +25,7 @@ const MessageList = ({ messages, isLoading }: Props) => {
           <div
             key={message.id}
             className={cn("flex", {
-              
+
             })}
           >
             <div
@@ -36,7 +36,7 @@ const MessageList = ({ messages, isLoading }: Props) => {
                 }
               )}
             >
-              {message.role === "user" ? (<IconOpenAI className="w-6 h-6" />) : <IconUser/>}
+              {message.role === "user" ? (< IconUser className="w-6 h-6" />) : <IconOpenAI className="w-6 h-6" />}
               <p>{message.content}</p>
             </div>
           </div>

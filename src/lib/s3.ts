@@ -1,4 +1,5 @@
 import AWS from 'aws-sdk';
+import toast from 'react-hot-toast';
 
 export async function uploadToS3(file: File) {
   try {
@@ -28,7 +29,14 @@ export async function uploadToS3(file: File) {
 
     await upload.then(data => {
       console.log("upload success", file_key)
-    })
+      toast.success("File uploaded successfully")
+      // add a settimeout of 3 secnds for waiting for the file upload toast to disapper 
+      setTimeout(() => {
+        toast.success("Creating Chat")
+      }, 3000)
+    }
+    )
+
 
     return Promise.resolve({
       file_name: file.name,

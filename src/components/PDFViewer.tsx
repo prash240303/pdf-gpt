@@ -8,7 +8,6 @@ const PDFViewer = ({ pdf_url }: Props) => {
     <iframe
       src={`https://docs.google.com/gview?url=${pdf_url}&embedded=true`}
       className="w-full"
-      // style={{ height: "calc(100vh - 10vh)" }} // Adjust the height as per your requirement
     ></iframe>
   );
 };

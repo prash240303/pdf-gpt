@@ -40,7 +40,7 @@ const ChatComponent = ({ chatId }: Props) => {
     }
   }, [messages]);
   return (
-    <div className="relative h-full overflow-y-scroll flex flex-col w-full justify-between " id="message-container"
+    <div className="relative h-full  flex flex-col w-full justify-between " id="message-container"
     >
       {/* header */}
       <div className="sticky z-10 top-0 inset-x-0 p-2 bg-white h-fit">
@@ -48,13 +48,14 @@ const ChatComponent = ({ chatId }: Props) => {
       </div>
 
       {/* message list */}
-      <div className="sticky pt-8 bottom-0">
+      <div className=" grid items-start overflow-y-scroll relative h-full w-full">
+      {/* <div className="sticky pt-8 bottom-0"> */}
         <MessageList messages={messages} isLoading={isLoading} />
       </div>
 
       <form
         onSubmit={handleSubmit}
-        className="sticky bottom-0 inset-x-0 px-2 pb-4 pt-2  bg-white"
+        className="sticky bottom-0 px-2 pb-4 pt-2  bg-white"
       >
         <div className="flex">
           <Input
