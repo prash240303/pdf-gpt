@@ -28,6 +28,7 @@
     "dotenv": "^16.4.5",
     "drizzle-kit": "^0.20.14",
     "drizzle-orm": "^0.29.4",
+    "framer-motion": "^11.0.28",
     "geist": "^1.2.2",
     "langchain": "^0.1.25",
     "lucide-react": "^0.344.0",
@@ -41,7 +42,7 @@
     "react-dropzone": "^14.2.3",
     "react-hot-toast": "^2.4.1",
     "stripe": "^14.19.0",
-    "tailwind-merge": "^2.2.1",
+    "tailwind-merge": "^2.2.2",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {

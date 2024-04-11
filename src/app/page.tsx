@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { UserButton, auth } from "@clerk/nextjs";
 import Link from "next/link";
-import { ArrowRight, LogIn} from "lucide-react";
+import { ArrowRight, LogIn } from "lucide-react";
 import FileUpload from "@/components/FileUpload";
 import { checkSubscription } from "@/lib/subscription";
 import { SubscriptionButton } from "@/components/subscriptionButton";
@@ -9,6 +9,7 @@ import { db } from "@/lib/db";
 import { chats } from "@/lib/db/schema";
 import { eq } from "drizzle-orm";
 import Image from "next/image";
+import { HeroScrollDemo } from "@/components/heroScrollAnimation";
 
 export default async function Home() {
   const { userId } = await auth();
@@ -22,12 +23,12 @@ export default async function Home() {
     }
   }
   return (
-    <div className="w-screen min-h-screen overflow-hidden">
+    <div className="">
       <Image src={"/bg.svg"} objectFit="cover" height={1500} width={1000} className=" absolute overflow-hidden w-screen h-screen -z-10 opacity-60 top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 " alt="bg" />
       <div className="bg-transparent border-transparent border-b-2 z-20  py-8 px-24  relative transition-all flex justify-between wrapper w-full">
         <div>
           <a href="/">
-            <Image src="/logo.svg" width={180} height={64}  alt="logo" />
+            <Image src="/logo.svg" width={180} height={64} alt="logo" />
           </a>
         </div>
         <ul className="p-0 m-0 space-x-5 text-lg flex items-center list-none text-black">
@@ -101,7 +102,13 @@ export default async function Home() {
               </Link>
             )}
           </div>
+          <div className="w-full overflow-hidden ">
+            <HeroScrollDemo />
+          </div>
         </div>
+      </div>
+      <div className="w-full text-center text-gray-500 border-opacity-20 py-4 border-t border-gray-600">
+        © TalkPDF 2024.
       </div>
     </div >
   );
