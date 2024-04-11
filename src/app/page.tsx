@@ -90,12 +90,12 @@ export default async function Home() {
             Unlock the Power of AI: Seamlessly Interact with PDFs to Gain Instant Understanding and Answers
           </p>
 
-          <div className="w-3/5 mt-6">
+          <div className="w-3/5 my-8">
             {isAuth ? (
               <FileUpload />
             ) : (
               <Link href="https://square-chipmunk-73.accounts.dev/sign-in">
-                <Button className="bg-primary-300 ">
+                <Button className="bg-primary-300 mb-24 mt-6">
                   Login to get Started!
                   <LogIn className="w-4 h-4 ml-2" />
                 </Button>
