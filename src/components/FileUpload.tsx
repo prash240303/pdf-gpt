@@ -8,23 +8,8 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
-} from "@/components/ui/alert-dialog"
-
-// https://github.com/aws/aws-sdk-js-v3/issues/4126
-
 const FileUpload = () => {
   const router = useRouter();
-  const [showDialog, setShowDialog] = React.useState(true); // Show dialog by default
   const [uploading, setUploading] = React.useState(false);
   const { mutate } = useMutation({
     mutationFn: async ({
@@ -68,9 +53,7 @@ const FileUpload = () => {
           },
           onError: (err) => {
             toast.error("Error creating chat");
-            // show the alert dialog here
-            setShowDialog(true);
-            console.error(err);
+            console.log(err);
           },
         });
       } catch (error) {
@@ -80,16 +63,6 @@ const FileUpload = () => {
       }
     },
   });
-  
-  React.useEffect(() => {
-    // Close the dialog after a certain delay
-    const timeout = setTimeout(() => {
-      setShowDialog(false);
-    }, 3000); // Adjust the delay as needed
-
-    // Clear the timeout when the component unmounts
-    return () => clearTimeout(timeout);
-  }, []);
 
   return (
     <div className="p-2 border border-gray-300 bg-white rounded-2xl">
@@ -117,24 +90,7 @@ const FileUpload = () => {
         )}
       </div>
 
-      {showDialog && (
-        <AlertDialog>
-            <AlertDialogTrigger>Open</AlertDialogTrigger>
-          <AlertDialogContent>
-            <AlertDialogHeader>
-              <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-              <AlertDialogDescription>
-                This action cannot be undone. This will permanently delete your account
-                and remove your data from our servers.
-              </AlertDialogDescription>
-            </AlertDialogHeader>
-            <AlertDialogFooter>
-              <AlertDialogCancel>Cancel</AlertDialogCancel>
-              <AlertDialogAction>Continue</AlertDialogAction>
-            </AlertDialogFooter>
-          </AlertDialogContent>
-        </AlertDialog>
-      )}
+
     </div>
   );
 };

@@ -24,18 +24,16 @@ export default async function Home() {
   return (
     <div className="w-screen min-h-screen overflow-hidden">
       <Image src={"/bg.svg"} objectFit="cover" height={1500} width={1000} className=" absolute overflow-hidden w-screen h-screen -z-10 opacity-60 top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 " alt="bg" />
-      {/* <div className="w-screen min-h-screen bg-gradient-radial bg-center from-[#B5DBFF] via-[#E0EDFF] to-white"> */}
       <div className="bg-transparent border-transparent border-b-2 z-20  py-8 px-24  relative transition-all flex justify-between wrapper w-full">
         <div>
           <a href="/">
-            <Image src="/logo.svg" width={100} height={40} alt="logo" />
+            <Image src="/logo.svg" width={180} height={64}  alt="logo" />
           </a>
         </div>
         <ul className="p-0 m-0 space-x-5 text-lg flex items-center list-none text-black">
           <li>
             <a
               href="/"
-              // href="https://capso.notion.site/7aac740edeee49b5a23be901a7cb734e?v=7c1f56484be4497aae03e1aa5fba0f34"
               target="_blank"
             >
               Roadmap

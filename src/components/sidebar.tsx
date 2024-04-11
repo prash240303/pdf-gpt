@@ -106,10 +106,10 @@ export default function DashboardSidebar(props: DashboardSidebarProps) {
         >
           <Image
             src="/logo.svg"
-            className="py-2 w-24 h-16 text-white my-1"
+            className="py-2 w-36 h-20 text-white my-1"
             alt="hello"
-            width={180}
-            height={160}
+            width={500}
+            height={500}
           />
         </Link>
 

@@ -24,11 +24,11 @@ export async function uploadToS3(file: File) {
       Body: file,
     }
     const upload = s3.putObject(params).on('httpUploadProgress', event => {
-      console.log("uploadin to s3 bucket...", parseInt(((event.loaded * 100) / event.total).toString()) + "%")
+      // console.log("uploadin to s3 bucket...", parseInt(((event.loaded * 100) / event.total).toString()) + "%")
     }).promise()
 
     await upload.then(data => {
-      console.log("upload success", file_key)
+      // console.log("upload success", file_key)
       toast.success("File uploaded successfully")
       // add a settimeout of 3 secnds for waiting for the file upload toast to disapper 
       setTimeout(() => {
@@ -43,7 +43,9 @@ export async function uploadToS3(file: File) {
       file_key,
     })
 
-  } catch (error) { }
+  } catch (error) {
+    console.error("error uploading file to s3", error)
+  }
 }
 
 
