@@ -10,9 +10,18 @@ import { chats } from "@/lib/db/schema";
 import { eq } from "drizzle-orm";
 import Image from "next/image";
 import { HeroScrollDemo } from "@/components/heroScrollAnimation";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
 
 export default async function Home() {
   const { userId } = await auth();
+
   const isAuth = !!userId;
   const isPro = await checkSubscription();
   let firstChat;
@@ -22,8 +31,27 @@ export default async function Home() {
       firstChat = firstChat[0];
     }
   }
+
+
+  // Function to toggle modal visibility
+
+
   return (
     <div className="">
+
+      <Dialog defaultOpen={true}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle className="mb-2 text-primary-300">Note !! The product is currently not working</DialogTitle>
+            <DialogDescription>
+              Due to AWS and OpenAI API costs, the product is currently not working. If you can provide any AID it would be very helpful (contact me if you can help me out @prash2403 on twitter). We are sorry for the inconvenience.
+            <Button className="block mt-4 bg-white border border-primary-300 text-primary-300 hover:bg-primary-300 hover:text-white">Help me out</Button>
+            </DialogDescription>
+            
+          </DialogHeader>
+        </DialogContent>
+      </Dialog>
+
       <Image src={"/bg.svg"} objectFit="cover" height={1500} width={1000} className=" absolute overflow-hidden w-screen h-screen -z-10 opacity-60 top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 " alt="bg" />
       <div className="bg-transparent border-transparent border-b-2 z-20  py-8 px-24  relative transition-all flex justify-between wrapper w-full">
         <div>
