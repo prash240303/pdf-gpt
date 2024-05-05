@@ -1,36 +1,103 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">TalkPDF: Your Brilliant AI-Powered Research Companion</h1>
 
-## Getting Started
+<p align="center">
+  <a href="https://github.com/prash240303/talk-pdf/graphs/contributors" target="_blank">
+    <img src="https://talkpdf.tech/logo.svg" alt="talk-pdf contributors" />
+  </a>
+</p>
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+![image](https://github.com/prash240303/talk-pdf/assets/93905743/6f1f8882-a2db-4307-866a-bc03281824e8)
+  
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<h4 align="center">Unlock the Power of AI: Seamlessly Interact with PDFs to Gain Instant Understanding and Answers</h4>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+<p align="center">
+  <a href="https://github.com/prash240303/talk-pdf/blob/main/LICENSE" target="_blank">
+    <img src="https://img.shields.io/github/license/prash240303/talk-pdf?style=flat-square" alt="talk-pdf licence" />
+  </a>
+  <a href="https://github.com/prash240303/talk-pdf/fork" target="_blank">
+    <img src="https://img.shields.io/github/forks/prash240303/talk-pdf?style=flat-square" alt="talk-pdf forks"/>
+  </a>
+  <a href="https://github.com/prash240303/talk-pdf/stargazers" target="_blank">
+    <img src="https://img.shields.io/github/stars/prash240303/talk-pdf?style=flat-square" alt="talk-pdf stars"/>
+  </a>
+  <a href="https://github.com/prash240303/talk-pdf/issues" target="_blank">
+    <img src="https://img.shields.io/github/issues/prash240303/talk-pdf?style=flat-square" alt="talk-pdf issues"/>
+  </a>
+  <a href="https://github.com/prash240303/talk-pdf/pulls" target="_blank">
+    <img src="https://img.shields.io/github/issues-pr/prash240303/talk-pdf?style=flat-square" alt="talk-pdf pull-requests"/>
+  </a>
+</p>
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+<p align="center">
+    <a href="https://talk-pdf.vercel.app/" target="_blank">View Demo</a>
+    ·
+    <a href="https://github.com/prash240303/talk-pdf/issues/new/choose" target="_blank">Report Bug</a>
+    ·
+    <a href="https://github.com/prash240303/talk-pdf/issues/new/choose" target="_blank">Request Feature</a>
+</p>
 
-## Learn More
+**TalkPDF** empowers researchers with AI technology, enabling them to interact with PDF documents effortlessly. By leveraging the power of AI, users can ask questions related to their PDF content and receive instant answers, thereby enhancing their research productivity.
 
-To learn more about Next.js, take a look at the following resources:
+### Live : [https://talk-pdf.vercel.app/](https://talk-pdf.vercel.app/)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Project Overview
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+![Project Overview](./src/assets/screenshots/overview.png)
 
-## Deploy on Vercel
+## Key Features 📌
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Natural Language Interaction**: Users can ask questions in natural language related to the content of their PDF documents.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **Instant Answers**: TalkPDF provides instant answers to user queries, allowing for quick comprehension of PDF content.
+
+- **AI-Powered Search**: The application utilizes advanced AI algorithms to perform intelligent searches within PDF documents.
+
+- **PDF Annotations**: Users can annotate PDF documents directly within the application, facilitating collaboration and note-taking.
+
+- **Export Highlights**: TalkPDF enables users to export highlighted sections or annotations from PDF documents for further analysis or sharing.
+
+## Techstack used 🛠️
+
+The following technologies and libraries are used for the development of this project.
+
+- [Next.js](https://nextjs.org/)
+- [React PDF](https://react-pdf.org/)
+- [Chakra UI](https://chakra-ui.com/)
+- [TensorFlow.js](https://www.tensorflow.org/js)
+- [React Icons](https://react-icons.github.io/react-icons/)
+- [pdf.js](https://mozilla.github.io/pdf.js/)
+- [Prettier](https://prettier.io/)
+
+## Demo Screenshots
+
+![Natural Language Interaction](./src/assets/screenshots/interaction.png)
+
+![PDF Annotations](./src/assets/screenshots/annotations.png)
+
+![Export Highlights](./src/assets/screenshots/export.png)
+
+## Performance
+
+(Performance using [PageSpeed Insights](https://pagespeed.web.dev/))
+
+![Pagespeed](./src/assets/screenshots/Performance1.png)
+
+(Performance using Chrome Devtools LightHouse)
+
+![Chrome Lighthouse](./src/assets/screenshots/Performance2.png)
+
+### Optimisation
+
+- Lazy loaded PDF rendering for improved performance.
+- Minimized network requests for faster loading times.
+- Utilized Vercel for hosting to ensure scalability and reliability.
+
+## Community and Contributions
+
+We welcome contributions from the community to enhance TalkPDF! Whether you're a user or a developer, your feedback and contributions are invaluable. Please refer to our [contributing guidelines](https://github.com/prash240303/talk-pdf/blob/main/CONTRIBUTING.md) before getting started. Remember to adhere to our **Code of Conduct**.
+
+### Thanks to our Contributors 🌻
+
+![Contributors](https://contrib.rocks/image?repo=prash240303/talk-pdf&lastUpdate=37676)
