@@ -63,12 +63,12 @@
 The following technologies and libraries are used for the development of this project.
 
 - [Next.js](https://nextjs.org/)
+- [TailwindCSS](https://tailwindcss.com)
+- [ShadCn](https://ui.shadcn.com/)
 - [React PDF](https://react-pdf.org/)
-- [Chakra UI](https://chakra-ui.com/)
-- [TensorFlow.js](https://www.tensorflow.org/js)
+- [AWS S3 bucket](https://s3.console.aws.amazon.com/s3/home?region=us-east-1)
 - [React Icons](https://react-icons.github.io/react-icons/)
 - [pdf.js](https://mozilla.github.io/pdf.js/)
-- [Prettier](https://prettier.io/)
 
 ## Demo Screenshots
 
