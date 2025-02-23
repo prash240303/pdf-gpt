@@ -37,7 +37,6 @@ export async function uploadToS3(file: File) {
     }
     )
 
-
     return Promise.resolve({
       file_name: file.name,
       file_key,
