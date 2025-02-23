@@ -98,6 +98,32 @@ The following technologies and libraries are used for the development of this pr
 
 We welcome contributions from the community to enhance TalkPDF! Whether you're a user or a developer, your feedback and contributions are invaluable. Please refer to our [contributing guidelines](https://github.com/prash240303/talk-pdf/blob/main/CONTRIBUTING.md) before getting started. Remember to adhere to our **Code of Conduct**.
 
+### ENV file setup 
+CLERK_SECRET_KEY = 
+NEXT_PUBLIC_DATABASE_URL =   
+#aws
+NEXT_PUBLIC_S3_ACCESS_KEY_ID = 
+NEXT_PUBLIC_S3_SECRET_ACCESS_KEY = 
+NEXT_PUBLIC_S3_BUCKET_NAME = 
+NEXT_PUBLIC_S3_REGION = 
+
+
+# pinecone 
+PINECONE_API_KEY = 
+
+
+
+#openai
+OPENAI_API_KEY = 
+
+
+NEXT_PUBLIC_URL = http://localhost:3000
+
+#stripe 
+STRIPE_API_KEY = 
+STRIPE_WEBHOOK_SIGNING_SECRET = 
+
+
 ### Thanks to our Contributors 🌻
 
 ![Contributors](https://contrib.rocks/image?repo=prash240303/talk-pdf&lastUpdate=37676)
