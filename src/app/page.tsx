@@ -19,6 +19,8 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 
+
+
 export default async function Home() {
   const { userId } = await auth();
 
@@ -32,14 +34,10 @@ export default async function Home() {
     }
   }
 
-
-  // Function to toggle modal visibility
-
-
   return (
     <div className="">
 
-      <Dialog defaultOpen={true}>
+      {/* <Dialog defaultOpen={true}>
         <DialogContent>
           <DialogHeader>
             <DialogTitle className="mb-2 text-primary-300">Note !! The product is currently not working</DialogTitle>
@@ -50,7 +48,7 @@ export default async function Home() {
             
           </DialogHeader>
         </DialogContent>
-      </Dialog>
+      </Dialog> */}
 
       <Image src={"/bg.svg"} objectFit="cover" height={1500} width={1000} className=" absolute overflow-hidden w-screen h-screen -z-10 opacity-60 top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 " alt="bg" />
       <div className="bg-transparent border-transparent border-b-2 z-20  py-8 px-24  relative transition-all flex justify-between wrapper w-full">

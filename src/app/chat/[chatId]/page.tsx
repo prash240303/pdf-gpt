@@ -31,13 +31,13 @@ const ChatPage = async ({ params: { chatId } }: Props) => {
   }
 
   const currentChat = _chats.find((chat) => chat.id === parseInt(chatId));
-  const isPro = await checkSubscription()
+  // const isPro = await checkSubscription()
 
   return (
     <div className="flex h-screen overflow-hidden  ">
       {/* chat sidebar */}
       <div className="px-1">
-        <ChatSideBar isPro={isPro} chats={_chats} chatId={parseInt(chatId)} />
+        <ChatSideBar isPro={true} chats={_chats} chatId={parseInt(chatId)} />
       </div>
       {/* pdf viewer */}
       <div className=" pr-2 md:flex hidden pt-20 pb-3  flex-[4]">

@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <Providers>
-        <html className={`${GeistSans.variable} `} lang="en">
+        <html suppressHydrationWarning={true}  className={`${GeistSans.variable} `} lang="en">
           <body >{children}</body>
         <Toaster />
         </html>

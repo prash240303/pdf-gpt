@@ -1,5 +1,7 @@
 import { S3 } from "@aws-sdk/client-s3";
 import fs from "fs";
+
+
 export async function downloadFromS3(file_key: string): Promise<string> {
   return new Promise(async (resolve, reject) => {
     try {
@@ -16,7 +18,8 @@ export async function downloadFromS3(file_key: string): Promise<string> {
       };
 
       const obj = await s3.getObject(params);
-      const file_name = `/users/prash/pdfgpt/${Date.now().toString()}.pdf`;
+      const file_name = `C:/Users/prash/pdfgpt${Date.now().toString()}.pdf`;
+      console.log("file_name", file_name);
 
       if (obj.Body instanceof require("stream").Readable) {
         // AWS-SDK v3 has some issues with their typescript definitions, but this works
@@ -39,4 +42,12 @@ export async function downloadFromS3(file_key: string): Promise<string> {
   });
 }
 
+// // downloadFromS3("uploads/1693568801787chongzhisheng_resume.pdf");
+
+
+
 // downloadFromS3("uploads/1693568801787chongzhisheng_resume.pdf");
+
+// s3://pdf-gpt-project//uploads1713680570676OE_assignment .pdf
+
+// https://pdf-gpt-project.s3.ap-south-1.amazonaws.com//uploads1713680570676OE_assignment+.pdf

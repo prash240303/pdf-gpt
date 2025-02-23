@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { Message } from "ai/react";
-import { ClipboardIcon, Loader2 } from "lucide-react";
+import { ClipboardIcon, Loader2, Volume2Icon, ThumbsDown } from "lucide-react";
 import React, { useState } from "react";
 import { IconOpenAI, IconUser } from "./ui/icons";
 
@@ -11,6 +11,33 @@ type Props = {
 
 const MessageList = ({ messages, isLoading }: Props) => {
   const [hoveredMessage, setHoveredMessage] = useState<string | null>(null);
+  const [ThumbsDownFlag, setThumbsDownFlag] = useState<boolean>(false);
+  const copyToClipboard = (content: string) => {
+    navigator.clipboard.writeText(content).then(
+      () => {
+        console.log("Copied to clipboard successfully!");
+      },
+      (err) => {
+        console.error("Could not copy text: ", err);
+      }
+    );
+  };
+
+
+  const readAloud = (content: string) => {
+    const utterance = new SpeechSynthesisUtterance(content);
+    speechSynthesis.speak(utterance);
+  };
+
+  const handleThumbsDown = () => {
+    if (ThumbsDownFlag) {
+      setThumbsDownFlag(false);
+      return;
+    }
+    setThumbsDownFlag(true);
+
+  }
+
 
   if (isLoading) {
     return (
@@ -19,6 +46,8 @@ const MessageList = ({ messages, isLoading }: Props) => {
       </div>
     );
   }
+
+
   if (!messages) return <></>;
   return (
     <div className="flex flex-col my-4">
@@ -26,9 +55,7 @@ const MessageList = ({ messages, isLoading }: Props) => {
         return (
           <div
             key={message.id}
-            className={cn("flex", {
-
-            })}
+            className={cn("flex", {})}
           >
             <div
               className={cn(
@@ -41,16 +68,27 @@ const MessageList = ({ messages, isLoading }: Props) => {
               onMouseLeave={() => setHoveredMessage(null)}
             >
               <div className="w-fit flex justify-center items-center gap-2 h-6">
-                {message.role === "user" ? (< IconUser className="w-6 h-6" />) : <IconOpenAI className="w-6 h-6" />}
+                {message.role === "user" ? (<IconUser className="w-6 h-6" />) : <IconOpenAI className="w-6 h-6" />}
                 {message.role === "user" ? <p className="font-semibold">User</p> : <p className="font-semibold">AI</p>}
               </div>
               <p className="pl-8">{message.content}</p>
               {/* Show clipboard icon only on hover */}
-              {(message.role === "system" && hoveredMessage === message.id) ? (
-                <div className="pl-8">
-                  <ClipboardIcon className="w-4 h-4 cursor-pointer text-slate-400" />
+              {hoveredMessage === message.id && (
+                <div className="pl-8 flex gap-3">
+                  <ClipboardIcon
+                    className={`w-4 ${message.role === "user" ? "stroke-white" : "stroke-slate-500"} h-4 cursor-pointer`}
+                    onClick={() => copyToClipboard(message.content)}
+                  />
+                  <Volume2Icon
+                    className={`w-4 ${message.role === "user" ? "stroke-white" : "stroke-slate-500"} h-4 cursor-pointer`}
+                    onClick={() => readAloud(message.content)}
+                  />
+                  <ThumbsDown
+                    onClick={handleThumbsDown}
+                    className={`w-4 ${message.role === "user" ? "stroke-white hidden" : " visible stroke-slate-500"} ${ThumbsDownFlag ? "fill-slate-700" : "fill-none"} h-4 cursor-pointer`}
+                  />
                 </div>
-              ):<div className="h-4"></div>}
+              )}
             </div>
           </div>
         );

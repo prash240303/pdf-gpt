@@ -1,7 +1,6 @@
 import { neon, neonConfig } from "@neondatabase/serverless";
 import { drizzle } from "drizzle-orm/neon-http";
 
-neonConfig.fetchConnectionCache = true;
 
 if (!process.env.NEXT_PUBLIC_DATABASE_URL) {
   throw new Error("database url not found");
